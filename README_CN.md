@@ -1,5 +1,7 @@
 # Re-Highlight
 
+![latest version](https://img.shields.io/badge/pub-0.0.2-blue)
+
 `Re-Highlight`是一个强大的文本语法高亮库，是[Reqable](https://reqable.com)项目中的一个模块。`Re-Highlight`可以将一个文本自动语法高亮，只需要定义好一个语法规则。当然，`Re-Highlight`已经内置了几十种编程语言的语法高亮规则，几行代码即可实现代码语法高亮。
 
 `Re-Highlight`的实现代码全部由`Dart`语言编写，翻译自[highlightjs](https://github.com/highlightjs/highlight.js)项目。`Re-Highlight`的实现思路和灵感则来自于[highlight.dart](https://github.com/git-touch/highlight.dart)项目，感谢这些伟大的开源项目。由于`highlight.dart`项目存在一些问题且已停止更新， 所以才有了本项目的诞生。
@@ -7,6 +9,15 @@
 👏👏👏 `Re-Highlight`已同步`highlightjs`当前的最新版本v11.9.0，并验证通过全部的测试用例。
 
 ## 开始使用
+
+添加依赖到 `pubspec.yaml`.
+
+```yaml
+dependencies:
+  re_highlight: ^0.0.2
+```
+
+高亮你的文字或者代码。
 
 ```dart
 final Highlight highlight = Highlight();

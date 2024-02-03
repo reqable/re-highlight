@@ -1,14 +1,25 @@
 # Re-Highlight
 
+![latest version](https://img.shields.io/badge/pub-0.0.2-blue)
+
 [中文版本](./README_CN.md)
 
-`Re-Highlight` is a powerful syntax highlighting rule interpreter, which is a sub-module of the [Reqable](https://reqable.com) project. `Re-Highlight` can highlight a text by simply defining a syntax file. And `Re-Highlight` has built-in syntax highlighting rules for dozens of programming languages, it is easy to make your text syntax highlighting in just a few lines of code.
+`Re-Highlight` is a powerful syntax highlighter, which is a sub-module of the [Reqable](https://reqable.com) project. `Re-Highlight` can highlight a text by simply defining a syntax file. And `Re-Highlight` has built-in syntax highlighting rules for dozens of programming languages, it is easy to make your text syntax highlighting in just a few lines of code.
 
 The implementation code of `Re-Highlight` is all written in the `Dart`, translated from the [highlightjs](https://github.com/highlightjs/highlight.js) project. The implementation idea and inspiration of `Re-Highlight` come from the [highlight.dart](https://github.com/git-touch/highlight.dart) project. We are grateful for these great open-source projects. Due to some issues with the `highlight.dart` project and its discontinuation, this project was born.
 
 👏👏👏 `Re-Highlight` has been synchronized with the latest version v11.9.0 of `highlightjs` and has passed all test cases.
 
 ## Getting Started
+
+Add the followings in `pubspec.yaml`.
+
+```yaml
+dependencies:
+  re_highlight: ^0.0.2
+```
+
+Highlight yout text or code.
 
 ```dart
 final Highlight highlight = Highlight();
