@@ -6,7 +6,7 @@
 
 The implementation code of `Re-Highlight` is all written in the `Dart`, translated from the [highlightjs](https://github.com/highlightjs/highlight.js) project. The implementation idea and inspiration of `Re-Highlight` come from the [highlight.dart](https://github.com/git-touch/highlight.dart) project. We are grateful for these great open-source projects. Due to some issues with the `highlight.dart` project and its discontinuation, this project was born.
 
-👏👏👏 `Re-Highlight` has been synchronized with the latest version v11.9.0 of `highlightjs`` and has passed all test cases.
+👏👏👏 `Re-Highlight` has been synchronized with the latest version v11.9.0 of `highlightjs` and has passed all test cases.
 
 ## Getting Started
 
