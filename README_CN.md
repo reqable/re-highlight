@@ -8,6 +8,10 @@
 
 👏👏👏 `Re-Highlight`已同步`highlightjs`当前的最新版本v11.9.0，并验证通过全部的测试用例。
 
+下图是高亮效果，更多的样式和语言请参考example。
+
+![art](./arts/art01.png)
+
 ## 开始使用
 
 添加依赖到 `pubspec.yaml`.

@@ -10,6 +10,10 @@ The implementation code of `Re-Highlight` is all written in the `Dart`, translat
 
 👏👏👏 `Re-Highlight` has been synchronized with the latest version v11.9.0 of `highlightjs` and has passed all test cases.
 
+The below shows the highlighting effect. For more styles and languages, please refer to example.
+
+![art](./arts/art01.png)
+
 ## Getting Started
 
 Add the followings in `pubspec.yaml`.
