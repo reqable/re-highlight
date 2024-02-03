@@ -1,0 +1,56 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+import 'package:flutter/painting.dart';
+
+const equilibriumLightTheme = {
+  'root':
+      TextStyle(color: Color(0xff43474e), backgroundColor: Color(0xfff5f0e7)),
+  '.hljs::selection':
+      TextStyle(backgroundColor: Color(0xffd8d4cb), color: Color(0xff43474e)),
+  '.hljs-::selection':
+      TextStyle(backgroundColor: Color(0xffd8d4cb), color: Color(0xff43474e)),
+  'comment': TextStyle(color: Color(0xff73777f)),
+  'tag': TextStyle(color: Color(0xff5a5f66)),
+  'subst': TextStyle(color: Color(0xff43474e)),
+  'punctuation': TextStyle(color: Color(0xff43474e)),
+  'operator': TextStyle(color: Color(0xff43474e)),
+  'bullet': TextStyle(color: Color(0xffd02023)),
+  'variable': TextStyle(color: Color(0xffd02023)),
+  'template-variable': TextStyle(color: Color(0xffd02023)),
+  'selector-tag': TextStyle(color: Color(0xffd02023)),
+  'name': TextStyle(color: Color(0xffd02023)),
+  'deletion': TextStyle(color: Color(0xffd02023)),
+  'symbol': TextStyle(color: Color(0xffbf3e05)),
+  'number': TextStyle(color: Color(0xffbf3e05)),
+  'link': TextStyle(color: Color(0xffbf3e05)),
+  'attr': TextStyle(color: Color(0xffbf3e05)),
+  'variable.constant_': TextStyle(color: Color(0xffbf3e05)),
+  'literal': TextStyle(color: Color(0xffbf3e05)),
+  'title': TextStyle(color: Color(0xff9d6f00)),
+  'class-title': TextStyle(color: Color(0xff9d6f00)),
+  'title.class_': TextStyle(color: Color(0xff9d6f00)),
+  'strong': TextStyle(fontWeight: FontWeight.bold, color: Color(0xff9d6f00)),
+  'code': TextStyle(color: Color(0xff637200)),
+  'addition': TextStyle(color: Color(0xff637200)),
+  'title.class_.inherited__': TextStyle(color: Color(0xff637200)),
+  'string': TextStyle(color: Color(0xff637200)),
+  'built_in': TextStyle(color: Color(0xff007a72)),
+  'doctag': TextStyle(color: Color(0xff007a72)),
+  'quote': TextStyle(color: Color(0xff007a72)),
+  'keyword.hljs-atrule': TextStyle(color: Color(0xff007a72)),
+  'regexp': TextStyle(color: Color(0xff007a72)),
+  'function-title': TextStyle(color: Color(0xff0073b5)),
+  'attribute': TextStyle(color: Color(0xff0073b5)),
+  '.ruby-property': TextStyle(color: Color(0xff0073b5)),
+  'title.function_': TextStyle(color: Color(0xff0073b5)),
+  'section': TextStyle(color: Color(0xff0073b5)),
+  'type': TextStyle(color: Color(0xff4e66b6)),
+  'template-tag': TextStyle(color: Color(0xff4e66b6)),
+  '.diff-meta': TextStyle(color: Color(0xff4e66b6)),
+  'keyword': TextStyle(color: Color(0xff4e66b6)),
+  'emphasis': TextStyle(color: Color(0xff4e66b6), fontStyle: FontStyle.italic),
+  'meta': TextStyle(color: Color(0xffc42775)),
+  'meta-keyword':
+      TextStyle(color: Color(0xffc42775), fontWeight: FontWeight.bold),
+  'meta-string': TextStyle(color: Color(0xffc42775)),
+};

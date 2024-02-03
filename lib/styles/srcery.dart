@@ -1,0 +1,43 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+import 'package:flutter/painting.dart';
+
+const srceryTheme = {
+  'root':
+      TextStyle(backgroundColor: Color(0xff1C1B19), color: Color(0xffFCE8C3)),
+  'subst': TextStyle(color: Color(0xffFCE8C3)),
+  'quote': TextStyle(color: Color(0xffFCE8C3)),
+  'literal': TextStyle(color: Color(0xffFCE8C3)),
+  'type': TextStyle(color: Color(0xff68A8E4)),
+  'symbol': TextStyle(color: Color(0xff68A8E4)),
+  'keyword': TextStyle(color: Color(0xffEF2F27)),
+  'deletion': TextStyle(color: Color(0xffEF2F27)),
+  'name': TextStyle(color: Color(0xffFBB829)),
+  'function': TextStyle(color: Color(0xffFBB829)),
+  'attribute': TextStyle(color: Color(0xffFBB829)),
+  'selector-attr': TextStyle(color: Color(0xffFBB829)),
+  'selector-id': TextStyle(color: Color(0xffFBB829)),
+  'selector-class': TextStyle(color: Color(0xffFBB829)),
+  'selector-pseudo': TextStyle(color: Color(0xffFBB829)),
+  'section': TextStyle(color: Color(0xffFBB829)),
+  'title': TextStyle(color: Color(0xffFBB829)),
+  'code': TextStyle(color: Color(0xff0AAEB3)),
+  'variable': TextStyle(color: Color(0xff0AAEB3)),
+  'property': TextStyle(color: Color(0xff0AAEB3)),
+  'template-variable': TextStyle(color: Color(0xff0AAEB3)),
+  'class': TextStyle(color: Color(0xff0AAEB3)),
+  'string': TextStyle(color: Color(0xff98BC37)),
+  'regexp': TextStyle(color: Color(0xff98BC37)),
+  'bullet': TextStyle(color: Color(0xff98BC37)),
+  'addition': TextStyle(color: Color(0xff98BC37)),
+  'built_in': TextStyle(color: Color(0xffFF5C8F)),
+  'params': TextStyle(color: Color(0xffFF5C8F)),
+  'template-tag': TextStyle(color: Color(0xff2C78BF)),
+  'selector-tag': TextStyle(color: Color(0xff2C78BF)),
+  'link': TextStyle(color: Color(0xff918175)),
+  'number': TextStyle(color: Color(0xff918175)),
+  'comment': TextStyle(color: Color(0xff918175)),
+  'meta': TextStyle(color: Color(0xff918175)),
+  'emphasis': TextStyle(fontStyle: FontStyle.italic),
+  'strong': TextStyle(fontWeight: FontWeight.bold),
+};

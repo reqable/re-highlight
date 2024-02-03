@@ -1,0 +1,49 @@
+<span class="hljs-comment"># GN</span>
+
+<span class="hljs-built_in">import</span>(<span class="hljs-string">"//tools/idl_compiler.gni"</span>)
+
+<span class="hljs-built_in">declare_args</span>() {
+  <span class="hljs-comment"># Applies only to toolchains targeting `target_cpu`.</span>
+  sysroot = <span class="hljs-string">""</span>
+}
+
+<span class="hljs-built_in">config</span>(<span class="hljs-string">"my_config"</span>) {
+  <span class="hljs-keyword">if</span> (<span class="hljs-literal">current_cpu</span> == <span class="hljs-string">"arm"</span>) {
+    <span class="hljs-symbol">defines</span> = [ <span class="hljs-string">"CPU_IS_32_BIT"</span> ]
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-symbol">defines</span> = [ <span class="hljs-string">"CPU_IS_64_BIT"</span> ]
+  }
+  <span class="hljs-keyword">if</span> (sysroot != <span class="hljs-string">""</span> &amp;&amp; <span class="hljs-literal">current_cpu</span> == <span class="hljs-literal">target_cpu</span>) {
+    <span class="hljs-symbol">cflags</span> = [ <span class="hljs-string">"--sysroot=<span class="hljs-subst">${<span class="hljs-variable">sysroot</span>}</span>"</span> ]
+  }
+}
+
+<span class="hljs-comment"># Declares a script that compiles IDL files.</span>
+<span class="hljs-built_in">template</span>(<span class="hljs-string">"idl"</span>) {
+  idl_target_name = <span class="hljs-string">"<span class="hljs-subst">${<span class="hljs-variable">target_name</span>}</span>_generate"</span>
+  <span class="hljs-type">action_foreach</span>(idl_target_name) {
+    <span class="hljs-symbol">script</span> = idl_compiler
+  }
+
+  <span class="hljs-type">source_set</span>(<span class="hljs-literal">target_name</span>) {
+    <span class="hljs-symbol">sources</span> = <span class="hljs-literal">invoker</span>.<span class="hljs-symbol">sources</span>
+    <span class="hljs-symbol">deps</span> = [ <span class="hljs-string">":<span class="hljs-subst">$idl_target_name</span>"</span> ]
+  }
+}
+
+idl(<span class="hljs-string">"my_interfaces"</span>) {
+  <span class="hljs-symbol">sources</span> = [
+    <span class="hljs-string">"a.idl"</span>,
+    <span class="hljs-string">"b.idl"</span>,
+  ]
+}
+
+<span class="hljs-type">executable</span>(<span class="hljs-string">"my_tool"</span>) {
+  <span class="hljs-symbol">sources</span> = [
+    <span class="hljs-string">"main.cc"</span>,
+  ]
+
+  <span class="hljs-symbol">deps</span> = [
+    <span class="hljs-string">"<span class="hljs-link">:my_interfaces</span>"</span>,
+  ]
+}

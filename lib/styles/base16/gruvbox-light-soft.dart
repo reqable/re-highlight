@@ -1,0 +1,56 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+import 'package:flutter/painting.dart';
+
+const gruvboxLightSoftTheme = {
+  'root':
+      TextStyle(color: Color(0xff504945), backgroundColor: Color(0xfff2e5bc)),
+  '.hljs::selection':
+      TextStyle(backgroundColor: Color(0xffd5c4a1), color: Color(0xff504945)),
+  '.hljs-::selection':
+      TextStyle(backgroundColor: Color(0xffd5c4a1), color: Color(0xff504945)),
+  'comment': TextStyle(color: Color(0xffbdae93)),
+  'tag': TextStyle(color: Color(0xff665c54)),
+  'subst': TextStyle(color: Color(0xff504945)),
+  'punctuation': TextStyle(color: Color(0xff504945)),
+  'operator': TextStyle(color: Color(0xff504945)),
+  'bullet': TextStyle(color: Color(0xff9d0006)),
+  'variable': TextStyle(color: Color(0xff9d0006)),
+  'template-variable': TextStyle(color: Color(0xff9d0006)),
+  'selector-tag': TextStyle(color: Color(0xff9d0006)),
+  'name': TextStyle(color: Color(0xff9d0006)),
+  'deletion': TextStyle(color: Color(0xff9d0006)),
+  'symbol': TextStyle(color: Color(0xffaf3a03)),
+  'number': TextStyle(color: Color(0xffaf3a03)),
+  'link': TextStyle(color: Color(0xffaf3a03)),
+  'attr': TextStyle(color: Color(0xffaf3a03)),
+  'variable.constant_': TextStyle(color: Color(0xffaf3a03)),
+  'literal': TextStyle(color: Color(0xffaf3a03)),
+  'title': TextStyle(color: Color(0xffb57614)),
+  'class-title': TextStyle(color: Color(0xffb57614)),
+  'title.class_': TextStyle(color: Color(0xffb57614)),
+  'strong': TextStyle(fontWeight: FontWeight.bold, color: Color(0xffb57614)),
+  'code': TextStyle(color: Color(0xff79740e)),
+  'addition': TextStyle(color: Color(0xff79740e)),
+  'title.class_.inherited__': TextStyle(color: Color(0xff79740e)),
+  'string': TextStyle(color: Color(0xff79740e)),
+  'built_in': TextStyle(color: Color(0xff427b58)),
+  'doctag': TextStyle(color: Color(0xff427b58)),
+  'quote': TextStyle(color: Color(0xff427b58)),
+  'keyword.hljs-atrule': TextStyle(color: Color(0xff427b58)),
+  'regexp': TextStyle(color: Color(0xff427b58)),
+  'function-title': TextStyle(color: Color(0xff076678)),
+  'attribute': TextStyle(color: Color(0xff076678)),
+  '.ruby-property': TextStyle(color: Color(0xff076678)),
+  'title.function_': TextStyle(color: Color(0xff076678)),
+  'section': TextStyle(color: Color(0xff076678)),
+  'type': TextStyle(color: Color(0xff8f3f71)),
+  'template-tag': TextStyle(color: Color(0xff8f3f71)),
+  '.diff-meta': TextStyle(color: Color(0xff8f3f71)),
+  'keyword': TextStyle(color: Color(0xff8f3f71)),
+  'emphasis': TextStyle(color: Color(0xff8f3f71), fontStyle: FontStyle.italic),
+  'meta': TextStyle(color: Color(0xffd65d0e)),
+  'meta-keyword':
+      TextStyle(color: Color(0xffd65d0e), fontWeight: FontWeight.bold),
+  'meta-string': TextStyle(color: Color(0xffd65d0e)),
+};

@@ -1,0 +1,396 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+import '1c.dart';
+import 'abnf.dart';
+import 'accesslog.dart';
+import 'actionscript.dart';
+import 'ada.dart';
+import 'angelscript.dart';
+import 'apache.dart';
+import 'applescript.dart';
+import 'arcade.dart';
+import 'arduino.dart';
+import 'armasm.dart';
+import 'xml.dart';
+import 'asciidoc.dart';
+import 'aspectj.dart';
+import 'autohotkey.dart';
+import 'autoit.dart';
+import 'avrasm.dart';
+import 'awk.dart';
+import 'axapta.dart';
+import 'bash.dart';
+import 'basic.dart';
+import 'bnf.dart';
+import 'brainfuck.dart';
+import 'c.dart';
+import 'cal.dart';
+import 'capnproto.dart';
+import 'ceylon.dart';
+import 'clean.dart';
+import 'clojure.dart';
+import 'clojure-repl.dart';
+import 'cmake.dart';
+import 'coffeescript.dart';
+import 'coq.dart';
+import 'cos.dart';
+import 'cpp.dart';
+import 'crmsh.dart';
+import 'crystal.dart';
+import 'csharp.dart';
+import 'csp.dart';
+import 'css.dart';
+import 'd.dart';
+import 'markdown.dart';
+import 'dart.dart';
+import 'delphi.dart';
+import 'diff.dart';
+import 'django.dart';
+import 'dns.dart';
+import 'dockerfile.dart';
+import 'dos.dart';
+import 'dsconfig.dart';
+import 'dts.dart';
+import 'dust.dart';
+import 'ebnf.dart';
+import 'elixir.dart';
+import 'elm.dart';
+import 'ruby.dart';
+import 'erb.dart';
+import 'erlang-repl.dart';
+import 'erlang.dart';
+import 'excel.dart';
+import 'fix.dart';
+import 'flix.dart';
+import 'fortran.dart';
+import 'fsharp.dart';
+import 'gams.dart';
+import 'gauss.dart';
+import 'gcode.dart';
+import 'gherkin.dart';
+import 'glsl.dart';
+import 'gml.dart';
+import 'go.dart';
+import 'golo.dart';
+import 'gradle.dart';
+import 'graphql.dart';
+import 'groovy.dart';
+import 'haml.dart';
+import 'handlebars.dart';
+import 'haskell.dart';
+import 'haxe.dart';
+import 'hsp.dart';
+import 'http.dart';
+import 'hy.dart';
+import 'inform7.dart';
+import 'ini.dart';
+import 'irpf90.dart';
+import 'isbl.dart';
+import 'java.dart';
+import 'javascript.dart';
+import 'jboss-cli.dart';
+import 'json.dart';
+import 'julia.dart';
+import 'julia-repl.dart';
+import 'kotlin.dart';
+import 'lasso.dart';
+import 'latex.dart';
+import 'ldif.dart';
+import 'leaf.dart';
+import 'less.dart';
+import 'lisp.dart';
+import 'livecodeserver.dart';
+import 'livescript.dart';
+import 'llvm.dart';
+import 'lsl.dart';
+import 'lua.dart';
+import 'makefile.dart';
+import 'mathematica.dart';
+import 'matlab.dart';
+import 'maxima.dart';
+import 'mel.dart';
+import 'mercury.dart';
+import 'mipsasm.dart';
+import 'mizar.dart';
+import 'perl.dart';
+import 'mojolicious.dart';
+import 'monkey.dart';
+import 'moonscript.dart';
+import 'n1ql.dart';
+import 'nestedtext.dart';
+import 'nginx.dart';
+import 'nim.dart';
+import 'nix.dart';
+import 'node-repl.dart';
+import 'nsis.dart';
+import 'objectivec.dart';
+import 'ocaml.dart';
+import 'openscad.dart';
+import 'oxygene.dart';
+import 'parser3.dart';
+import 'pf.dart';
+import 'pgsql.dart';
+import 'php.dart';
+import 'php-template.dart';
+import 'plaintext.dart';
+import 'pony.dart';
+import 'powershell.dart';
+import 'processing.dart';
+import 'profile.dart';
+import 'prolog.dart';
+import 'properties.dart';
+import 'protobuf.dart';
+import 'puppet.dart';
+import 'purebasic.dart';
+import 'python.dart';
+import 'python-repl.dart';
+import 'q.dart';
+import 'qml.dart';
+import 'r.dart';
+import 'reasonml.dart';
+import 'rib.dart';
+import 'roboconf.dart';
+import 'routeros.dart';
+import 'rsl.dart';
+import 'ruleslanguage.dart';
+import 'rust.dart';
+import 'sas.dart';
+import 'scala.dart';
+import 'scheme.dart';
+import 'scilab.dart';
+import 'scss.dart';
+import 'shell.dart';
+import 'smali.dart';
+import 'smalltalk.dart';
+import 'sml.dart';
+import 'sqf.dart';
+import 'sql.dart';
+import 'stan.dart';
+import 'stata.dart';
+import 'step21.dart';
+import 'stylus.dart';
+import 'subunit.dart';
+import 'swift.dart';
+import 'taggerscript.dart';
+import 'yaml.dart';
+import 'tap.dart';
+import 'tcl.dart';
+import 'thrift.dart';
+import 'tp.dart';
+import 'twig.dart';
+import 'typescript.dart';
+import 'vala.dart';
+import 'vbnet.dart';
+import 'vbscript.dart';
+import 'vbscript-html.dart';
+import 'verilog.dart';
+import 'vhdl.dart';
+import 'vim.dart';
+import 'wasm.dart';
+import 'wren.dart';
+import 'x86asm.dart';
+import 'xl.dart';
+import 'xquery.dart';
+import 'zephir.dart';
+import 'vue.dart';
+import 'gn.dart';
+
+final builtinCommunityLanguages = {
+  'vue': langVue,
+  'gn': langGn,
+};
+final builtinLanguages = {
+  '1c': lang1C,
+  'abnf': langAbnf,
+  'accesslog': langAccesslog,
+  'actionscript': langActionscript,
+  'ada': langAda,
+  'angelscript': langAngelscript,
+  'apache': langApache,
+  'applescript': langApplescript,
+  'arcade': langArcade,
+  'arduino': langArduino,
+  'armasm': langArmasm,
+  'xml': langXml,
+  'asciidoc': langAsciidoc,
+  'aspectj': langAspectj,
+  'autohotkey': langAutohotkey,
+  'autoit': langAutoit,
+  'avrasm': langAvrasm,
+  'awk': langAwk,
+  'axapta': langAxapta,
+  'bash': langBash,
+  'basic': langBasic,
+  'bnf': langBnf,
+  'brainfuck': langBrainfuck,
+  'c': langC,
+  'cal': langCal,
+  'capnproto': langCapnproto,
+  'ceylon': langCeylon,
+  'clean': langClean,
+  'clojure': langClojure,
+  'clojure-repl': langClojureRepl,
+  'cmake': langCmake,
+  'coffeescript': langCoffeescript,
+  'coq': langCoq,
+  'cos': langCos,
+  'cpp': langCpp,
+  'crmsh': langCrmsh,
+  'crystal': langCrystal,
+  'csharp': langCsharp,
+  'csp': langCsp,
+  'css': langCss,
+  'd': langD,
+  'markdown': langMarkdown,
+  'dart': langDart,
+  'delphi': langDelphi,
+  'diff': langDiff,
+  'django': langDjango,
+  'dns': langDns,
+  'dockerfile': langDockerfile,
+  'dos': langDos,
+  'dsconfig': langDsconfig,
+  'dts': langDts,
+  'dust': langDust,
+  'ebnf': langEbnf,
+  'elixir': langElixir,
+  'elm': langElm,
+  'ruby': langRuby,
+  'erb': langErb,
+  'erlang-repl': langErlangRepl,
+  'erlang': langErlang,
+  'excel': langExcel,
+  'fix': langFix,
+  'flix': langFlix,
+  'fortran': langFortran,
+  'fsharp': langFsharp,
+  'gams': langGams,
+  'gauss': langGauss,
+  'gcode': langGcode,
+  'gherkin': langGherkin,
+  'glsl': langGlsl,
+  'gml': langGml,
+  'go': langGo,
+  'golo': langGolo,
+  'gradle': langGradle,
+  'graphql': langGraphql,
+  'groovy': langGroovy,
+  'haml': langHaml,
+  'handlebars': langHandlebars,
+  'haskell': langHaskell,
+  'haxe': langHaxe,
+  'hsp': langHsp,
+  'http': langHttp,
+  'hy': langHy,
+  'inform7': langInform7,
+  'ini': langIni,
+  'irpf90': langIrpf90,
+  'isbl': langIsbl,
+  'java': langJava,
+  'javascript': langJavascript,
+  'jboss-cli': langJbossCli,
+  'json': langJson,
+  'julia': langJulia,
+  'julia-repl': langJuliaRepl,
+  'kotlin': langKotlin,
+  'lasso': langLasso,
+  'latex': langLatex,
+  'ldif': langLdif,
+  'leaf': langLeaf,
+  'less': langLess,
+  'lisp': langLisp,
+  'livecodeserver': langLivecodeserver,
+  'livescript': langLivescript,
+  'llvm': langLlvm,
+  'lsl': langLsl,
+  'lua': langLua,
+  'makefile': langMakefile,
+  'mathematica': langMathematica,
+  'matlab': langMatlab,
+  'maxima': langMaxima,
+  'mel': langMel,
+  'mercury': langMercury,
+  'mipsasm': langMipsasm,
+  'mizar': langMizar,
+  'perl': langPerl,
+  'mojolicious': langMojolicious,
+  'monkey': langMonkey,
+  'moonscript': langMoonscript,
+  'n1ql': langN1Ql,
+  'nestedtext': langNestedtext,
+  'nginx': langNginx,
+  'nim': langNim,
+  'nix': langNix,
+  'node-repl': langNodeRepl,
+  'nsis': langNsis,
+  'objectivec': langObjectivec,
+  'ocaml': langOcaml,
+  'openscad': langOpenscad,
+  'oxygene': langOxygene,
+  'parser3': langParser3,
+  'pf': langPf,
+  'pgsql': langPgsql,
+  'php': langPhp,
+  'php-template': langPhpTemplate,
+  'plaintext': langPlaintext,
+  'pony': langPony,
+  'powershell': langPowershell,
+  'processing': langProcessing,
+  'profile': langProfile,
+  'prolog': langProlog,
+  'properties': langProperties,
+  'protobuf': langProtobuf,
+  'puppet': langPuppet,
+  'purebasic': langPurebasic,
+  'python': langPython,
+  'python-repl': langPythonRepl,
+  'q': langQ,
+  'qml': langQml,
+  'r': langR,
+  'reasonml': langReasonml,
+  'rib': langRib,
+  'roboconf': langRoboconf,
+  'routeros': langRouteros,
+  'rsl': langRsl,
+  'ruleslanguage': langRuleslanguage,
+  'rust': langRust,
+  'sas': langSas,
+  'scala': langScala,
+  'scheme': langScheme,
+  'scilab': langScilab,
+  'scss': langScss,
+  'shell': langShell,
+  'smali': langSmali,
+  'smalltalk': langSmalltalk,
+  'sml': langSml,
+  'sqf': langSqf,
+  'sql': langSql,
+  'stan': langStan,
+  'stata': langStata,
+  'step21': langStep21,
+  'stylus': langStylus,
+  'subunit': langSubunit,
+  'swift': langSwift,
+  'taggerscript': langTaggerscript,
+  'yaml': langYaml,
+  'tap': langTap,
+  'tcl': langTcl,
+  'thrift': langThrift,
+  'tp': langTp,
+  'twig': langTwig,
+  'typescript': langTypescript,
+  'vala': langVala,
+  'vbnet': langVbnet,
+  'vbscript': langVbscript,
+  'vbscript-html': langVbscriptHtml,
+  'verilog': langVerilog,
+  'vhdl': langVhdl,
+  'vim': langVim,
+  'wasm': langWasm,
+  'wren': langWren,
+  'x86asm': langX86Asm,
+  'xl': langXl,
+  'xquery': langXquery,
+  'zephir': langZephir,
+};
+final builtinAllLanguages = {...builtinLanguages, ...builtinCommunityLanguages};

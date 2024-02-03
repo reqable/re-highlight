@@ -1,0 +1,20 @@
+{
+  "name": "tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "highlight.js": "^11.9.0",
+    "postcss": "^7.0.17"
+  },
+  "dependencies": {
+    "circular-json": "^0.5.9",
+    "lodash": "^4.17.21"
+  }
+}

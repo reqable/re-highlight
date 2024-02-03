@@ -1,0 +1,32 @@
+{
+  "name": "highlightjs-gn",
+  "version": "0.1.0",
+  "description": "highlight.js GN syntax highlighting definition for GN meta-build system language",
+  "main": "gn.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "files": [
+    "gn.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/highlightjs/highlightjs-GN.git"
+  },
+  "keywords": [
+    "gn",
+    "highlight.js",
+    "highlightjs",
+    "syntax"
+  ],
+  "author": "Petr Hosek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/highlightjs/highlightjs-GN/issues"
+  },
+  "homepage": "https://github.com/highlightjs/highlightjs-GN#readme",
+  "devDependencies": {
+    "highlight.js": "^9.15.6",
+    "jasmine": "^3.3.1"
+  }
+}

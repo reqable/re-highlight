@@ -1,0 +1,56 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+import 'package:flutter/painting.dart';
+
+const atelierDuneLightTheme = {
+  'root':
+      TextStyle(color: Color(0xff6e6b5e), backgroundColor: Color(0xfffefbec)),
+  '.hljs::selection':
+      TextStyle(backgroundColor: Color(0xffa6a28c), color: Color(0xff6e6b5e)),
+  '.hljs-::selection':
+      TextStyle(backgroundColor: Color(0xffa6a28c), color: Color(0xff6e6b5e)),
+  'comment': TextStyle(color: Color(0xff999580)),
+  'tag': TextStyle(color: Color(0xff7d7a68)),
+  'subst': TextStyle(color: Color(0xff6e6b5e)),
+  'punctuation': TextStyle(color: Color(0xff6e6b5e)),
+  'operator': TextStyle(color: Color(0xff6e6b5e)),
+  'bullet': TextStyle(color: Color(0xffd73737)),
+  'variable': TextStyle(color: Color(0xffd73737)),
+  'template-variable': TextStyle(color: Color(0xffd73737)),
+  'selector-tag': TextStyle(color: Color(0xffd73737)),
+  'name': TextStyle(color: Color(0xffd73737)),
+  'deletion': TextStyle(color: Color(0xffd73737)),
+  'symbol': TextStyle(color: Color(0xffb65611)),
+  'number': TextStyle(color: Color(0xffb65611)),
+  'link': TextStyle(color: Color(0xffb65611)),
+  'attr': TextStyle(color: Color(0xffb65611)),
+  'variable.constant_': TextStyle(color: Color(0xffb65611)),
+  'literal': TextStyle(color: Color(0xffb65611)),
+  'title': TextStyle(color: Color(0xffae9513)),
+  'class-title': TextStyle(color: Color(0xffae9513)),
+  'title.class_': TextStyle(color: Color(0xffae9513)),
+  'strong': TextStyle(fontWeight: FontWeight.bold, color: Color(0xffae9513)),
+  'code': TextStyle(color: Color(0xff60ac39)),
+  'addition': TextStyle(color: Color(0xff60ac39)),
+  'title.class_.inherited__': TextStyle(color: Color(0xff60ac39)),
+  'string': TextStyle(color: Color(0xff60ac39)),
+  'built_in': TextStyle(color: Color(0xff1fad83)),
+  'doctag': TextStyle(color: Color(0xff1fad83)),
+  'quote': TextStyle(color: Color(0xff1fad83)),
+  'keyword.hljs-atrule': TextStyle(color: Color(0xff1fad83)),
+  'regexp': TextStyle(color: Color(0xff1fad83)),
+  'function-title': TextStyle(color: Color(0xff6684e1)),
+  'attribute': TextStyle(color: Color(0xff6684e1)),
+  '.ruby-property': TextStyle(color: Color(0xff6684e1)),
+  'title.function_': TextStyle(color: Color(0xff6684e1)),
+  'section': TextStyle(color: Color(0xff6684e1)),
+  'type': TextStyle(color: Color(0xffb854d4)),
+  'template-tag': TextStyle(color: Color(0xffb854d4)),
+  '.diff-meta': TextStyle(color: Color(0xffb854d4)),
+  'keyword': TextStyle(color: Color(0xffb854d4)),
+  'emphasis': TextStyle(color: Color(0xffb854d4), fontStyle: FontStyle.italic),
+  'meta': TextStyle(color: Color(0xffd43552)),
+  'meta-keyword':
+      TextStyle(color: Color(0xffd43552), fontWeight: FontWeight.bold),
+  'meta-string': TextStyle(color: Color(0xffd43552)),
+};

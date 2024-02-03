@@ -1,0 +1,10 @@
+[submodule "vendor/highlight.js"]
+	path = vendor/highlight.js
+	url = https://github.com/reqable/highlight.js
+	branch = reqable-11.9.0
+[submodule "vendor/highlightjs-vue"]
+	path = vendor/highlightjs-vue
+	url = https://github.com/highlightjs/highlightjs-vue.git
+[submodule "vendor/highlightjs-GN"]
+	path = vendor/highlightjs-GN
+	url = https://github.com/highlightjs/highlightjs-GN.git

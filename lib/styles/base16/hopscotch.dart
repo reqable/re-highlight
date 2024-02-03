@@ -1,0 +1,56 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+import 'package:flutter/painting.dart';
+
+const hopscotchTheme = {
+  'root':
+      TextStyle(color: Color(0xffb9b5b8), backgroundColor: Color(0xff322931)),
+  '.hljs::selection':
+      TextStyle(backgroundColor: Color(0xff5c545b), color: Color(0xffb9b5b8)),
+  '.hljs-::selection':
+      TextStyle(backgroundColor: Color(0xff5c545b), color: Color(0xffb9b5b8)),
+  'comment': TextStyle(color: Color(0xff797379)),
+  'tag': TextStyle(color: Color(0xff989498)),
+  'subst': TextStyle(color: Color(0xffb9b5b8)),
+  'punctuation': TextStyle(color: Color(0xffb9b5b8)),
+  'operator': TextStyle(color: Color(0xffb9b5b8)),
+  'bullet': TextStyle(color: Color(0xffdd464c)),
+  'variable': TextStyle(color: Color(0xffdd464c)),
+  'template-variable': TextStyle(color: Color(0xffdd464c)),
+  'selector-tag': TextStyle(color: Color(0xffdd464c)),
+  'name': TextStyle(color: Color(0xffdd464c)),
+  'deletion': TextStyle(color: Color(0xffdd464c)),
+  'symbol': TextStyle(color: Color(0xfffd8b19)),
+  'number': TextStyle(color: Color(0xfffd8b19)),
+  'link': TextStyle(color: Color(0xfffd8b19)),
+  'attr': TextStyle(color: Color(0xfffd8b19)),
+  'variable.constant_': TextStyle(color: Color(0xfffd8b19)),
+  'literal': TextStyle(color: Color(0xfffd8b19)),
+  'title': TextStyle(color: Color(0xfffdcc59)),
+  'class-title': TextStyle(color: Color(0xfffdcc59)),
+  'title.class_': TextStyle(color: Color(0xfffdcc59)),
+  'strong': TextStyle(fontWeight: FontWeight.bold, color: Color(0xfffdcc59)),
+  'code': TextStyle(color: Color(0xff8fc13e)),
+  'addition': TextStyle(color: Color(0xff8fc13e)),
+  'title.class_.inherited__': TextStyle(color: Color(0xff8fc13e)),
+  'string': TextStyle(color: Color(0xff8fc13e)),
+  'built_in': TextStyle(color: Color(0xff149b93)),
+  'doctag': TextStyle(color: Color(0xff149b93)),
+  'quote': TextStyle(color: Color(0xff149b93)),
+  'keyword.hljs-atrule': TextStyle(color: Color(0xff149b93)),
+  'regexp': TextStyle(color: Color(0xff149b93)),
+  'function-title': TextStyle(color: Color(0xff1290bf)),
+  'attribute': TextStyle(color: Color(0xff1290bf)),
+  '.ruby-property': TextStyle(color: Color(0xff1290bf)),
+  'title.function_': TextStyle(color: Color(0xff1290bf)),
+  'section': TextStyle(color: Color(0xff1290bf)),
+  'type': TextStyle(color: Color(0xffc85e7c)),
+  'template-tag': TextStyle(color: Color(0xffc85e7c)),
+  '.diff-meta': TextStyle(color: Color(0xffc85e7c)),
+  'keyword': TextStyle(color: Color(0xffc85e7c)),
+  'emphasis': TextStyle(color: Color(0xffc85e7c), fontStyle: FontStyle.italic),
+  'meta': TextStyle(color: Color(0xffb33508)),
+  'meta-keyword':
+      TextStyle(color: Color(0xffb33508), fontWeight: FontWeight.bold),
+  'meta-string': TextStyle(color: Color(0xffb33508)),
+};

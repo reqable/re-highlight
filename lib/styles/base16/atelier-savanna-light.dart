@@ -1,0 +1,56 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+import 'package:flutter/painting.dart';
+
+const atelierSavannaLightTheme = {
+  'root':
+      TextStyle(color: Color(0xff526057), backgroundColor: Color(0xffecf4ee)),
+  '.hljs::selection':
+      TextStyle(backgroundColor: Color(0xff87928a), color: Color(0xff526057)),
+  '.hljs-::selection':
+      TextStyle(backgroundColor: Color(0xff87928a), color: Color(0xff526057)),
+  'comment': TextStyle(color: Color(0xff78877d)),
+  'tag': TextStyle(color: Color(0xff5f6d64)),
+  'subst': TextStyle(color: Color(0xff526057)),
+  'punctuation': TextStyle(color: Color(0xff526057)),
+  'operator': TextStyle(color: Color(0xff526057)),
+  'bullet': TextStyle(color: Color(0xffb16139)),
+  'variable': TextStyle(color: Color(0xffb16139)),
+  'template-variable': TextStyle(color: Color(0xffb16139)),
+  'selector-tag': TextStyle(color: Color(0xffb16139)),
+  'name': TextStyle(color: Color(0xffb16139)),
+  'deletion': TextStyle(color: Color(0xffb16139)),
+  'symbol': TextStyle(color: Color(0xff9f713c)),
+  'number': TextStyle(color: Color(0xff9f713c)),
+  'link': TextStyle(color: Color(0xff9f713c)),
+  'attr': TextStyle(color: Color(0xff9f713c)),
+  'variable.constant_': TextStyle(color: Color(0xff9f713c)),
+  'literal': TextStyle(color: Color(0xff9f713c)),
+  'title': TextStyle(color: Color(0xffa07e3b)),
+  'class-title': TextStyle(color: Color(0xffa07e3b)),
+  'title.class_': TextStyle(color: Color(0xffa07e3b)),
+  'strong': TextStyle(fontWeight: FontWeight.bold, color: Color(0xffa07e3b)),
+  'code': TextStyle(color: Color(0xff489963)),
+  'addition': TextStyle(color: Color(0xff489963)),
+  'title.class_.inherited__': TextStyle(color: Color(0xff489963)),
+  'string': TextStyle(color: Color(0xff489963)),
+  'built_in': TextStyle(color: Color(0xff1c9aa0)),
+  'doctag': TextStyle(color: Color(0xff1c9aa0)),
+  'quote': TextStyle(color: Color(0xff1c9aa0)),
+  'keyword.hljs-atrule': TextStyle(color: Color(0xff1c9aa0)),
+  'regexp': TextStyle(color: Color(0xff1c9aa0)),
+  'function-title': TextStyle(color: Color(0xff478c90)),
+  'attribute': TextStyle(color: Color(0xff478c90)),
+  '.ruby-property': TextStyle(color: Color(0xff478c90)),
+  'title.function_': TextStyle(color: Color(0xff478c90)),
+  'section': TextStyle(color: Color(0xff478c90)),
+  'type': TextStyle(color: Color(0xff55859b)),
+  'template-tag': TextStyle(color: Color(0xff55859b)),
+  '.diff-meta': TextStyle(color: Color(0xff55859b)),
+  'keyword': TextStyle(color: Color(0xff55859b)),
+  'emphasis': TextStyle(color: Color(0xff55859b), fontStyle: FontStyle.italic),
+  'meta': TextStyle(color: Color(0xff867469)),
+  'meta-keyword':
+      TextStyle(color: Color(0xff867469), fontWeight: FontWeight.bold),
+  'meta-string': TextStyle(color: Color(0xff867469)),
+};
