@@ -1,6 +1,6 @@
 name: re_highlight
 description: Re-Highlight is a powerful text syntax highlighting library.
-version: 0.0.1
+version: 0.0.2
 homepage: https://reqable.com
 repository: https://github.com/reqable/reqable-highlight
 
