@@ -1,6 +1,6 @@
 # Re-Highlight
 
-![latest version](https://img.shields.io/badge/pub-0.0.2-blue)
+[![latest version](https://img.shields.io/pub/v/re_highlight.svg?color=blue)](https://pub.dev/packages/re_highlight)
 
 `Re-Highlight`是一个强大的文本语法高亮库，是[Reqable](https://reqable.com)项目中的一个模块。`Re-Highlight`可以将一个文本自动语法高亮，只需要定义好一个语法规则。当然，`Re-Highlight`已经内置了几十种编程语言的语法高亮规则，几行代码即可实现代码语法高亮。
 
@@ -18,7 +18,7 @@
 
 ```yaml
 dependencies:
-  re_highlight: ^0.0.2
+  re_highlight: ^0.0.3
 ```
 
 高亮你的文字或者代码。
@@ -84,6 +84,10 @@ flutter test
 
 高亮规则解释器部分的代码是完全参照`highlightjs`翻译而来，我们尽量保持了文件结构、类名、函数名和代码逻辑的一致，方便后续升级同步。
 
+## 接入项目
+
+- [re-editor](https://github.com/reqable/re-editor) 基于Flutter的轻量级文本和代码编辑器。
+
 ## 问题和需求
 
 `Re-Highlight`的高亮语法和逻辑严格翻译自`highlightjs`项目，如果您发现有语法问题或者需要支持新的语言，建议提交至[highlightjs](https://github.com/highlightjs/highlight.js)，我们会尽量及时同步。
@@ -92,4 +96,4 @@ flutter test
 
 ## 赞助
 
-如果您希望赞助本项目，请优先赞助给`highlightjs`项目。如果仍有余力的话，可以通过购买[Reqable](https://reqable.com)的许可证来赞助我们。
+如果您希望赞助本项目，请优先赞助给`highlightjs`项目。如果仍有余力的话，可以通过购买[Reqable](https://reqable.com/pricing)的许可证来赞助我们。
