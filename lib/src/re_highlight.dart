@@ -2,7 +2,7 @@ library re_highlight;
 
 import 'dart:math';
 import 'package:collection/collection.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 part '_compiler_extensions.dart';
 part '_compile_keywords.dart';
@@ -20,3 +20,5 @@ part 'mode.dart';
 part 'renderer.dart';
 part 'text_span_render.dart';
 part 'token_tree.dart';
+
+part 'plugins/fast_json_plugin.dart';
