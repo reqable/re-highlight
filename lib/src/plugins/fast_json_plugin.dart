@@ -2,6 +2,8 @@ part of re_highlight;
 
 class FastJsonPlugin implements HLPlugin {
 
+  const FastJsonPlugin();
+
   @override
   void beforeHighlight(BeforeHighlightContext context) {
     if (context.language != 'json') {
