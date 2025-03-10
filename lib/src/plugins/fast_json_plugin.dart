@@ -26,6 +26,7 @@ class FastJsonPlugin implements HLPlugin {
       final _JsonParser parser = _JsonParser(code, tokenTree);
       parser.parse();
     } catch (e) {
+      // Fallback to highlight engine
       return null;
     }
     return HighlightResult(
@@ -86,7 +87,7 @@ class _JsonParser {
     } else if (char == 'n') {
       _parseLiteral('null');
     } else {
-      throw FormatException('非法字符: ${_code[_pos]} at position $_pos');
+      throw FormatException('Invalid character ${_code[_pos]} at position $_pos');
     }
   }
 
@@ -120,7 +121,7 @@ class _JsonParser {
           _pos++;
           _lastPos = _pos;
         } else {
-          throw FormatException('缺少逗号 at position $_pos');
+          throw FormatException('Missing comma at position $_pos');
         }
       }
 
@@ -130,7 +131,7 @@ class _JsonParser {
       if (_pos < _code.length && _code[_pos] == '"') {
         _parseString(true);
       } else {
-        throw FormatException('对象键必须是字符串 at position $_pos');
+        throw FormatException('Key should be a string at position $_pos');
       }
 
       _skipWhitespace();
@@ -143,7 +144,7 @@ class _JsonParser {
         _pos++;
         _lastPos = _pos;
       } else {
-        throw FormatException('缺少冒号 at position $_pos');
+        throw FormatException('Missing colon at position $_pos');
       }
 
       _parseValue();
@@ -183,7 +184,7 @@ class _JsonParser {
           _pos++;
           _lastPos = _pos;
         } else {
-          throw FormatException('缺少逗号 at position $_pos');
+          throw FormatException('Missing comma at position $_pos');
         }
       }
 
