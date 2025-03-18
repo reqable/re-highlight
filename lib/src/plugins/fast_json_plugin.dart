@@ -49,11 +49,10 @@ class _JsonParser {
   _JsonParser(this._code, this._tokenTree);
 
   void parse() {
-    _parseValue();
-    _skipWhitespace();
-    _flushText();
-    if (_pos < _code.length) {
-      _tokenTree.addText(_code.substring(_pos));
+    while (_pos < _code.length) {
+      _parseValue();
+      _skipWhitespace();
+      _flushText();
     }
   }
 
