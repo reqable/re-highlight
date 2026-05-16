@@ -1,20 +1,23 @@
 import 'package:re_highlight/re_highlight.dart';
 
-ModeCallback callbackOnBegin = (EnhancedMatch match, ModeCallbackResponse response) {
+ModeCallback callbackOnBegin =
+    (EnhancedMatch match, ModeCallbackResponse response) {
   final String? match0 = match[0];
   if (match0 == null) {
     return;
   }
   final int afterMatchIndex = match0.length + match.index;
-  final String nextChar = match.input.substring(afterMatchIndex, afterMatchIndex + 1);
+  final String? nextChar = afterMatchIndex < match.input.length
+      ? match.input[afterMatchIndex]
+      : null;
   if (
-    // HTML should not include another raw `<` inside a tag
-    // nested type?
-    // `<Array<Array<number>>`, etc.
-    nextChar == "<" ||
-    // the , gives away that this is not HTML
-    // `<T, A extends keyof T, V>`
-    nextChar == ",") {
+      // HTML should not include another raw `<` inside a tag
+      // nested type?
+      // `<Array<Array<number>>`, etc.
+      nextChar == "<" ||
+          // the , gives away that this is not HTML
+          // `<T, A extends keyof T, V>`
+          nextChar == ",") {
     response.ignoreMatch();
     return;
   }
