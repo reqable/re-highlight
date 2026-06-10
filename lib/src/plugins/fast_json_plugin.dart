@@ -1,7 +1,6 @@
-part of re_highlight;
+part of '../re_highlight.dart';
 
 class FastJsonPlugin implements HLPlugin {
-
   const FastJsonPlugin();
 
   @override
@@ -17,8 +16,7 @@ class FastJsonPlugin implements HLPlugin {
   }
 
   @override
-  void afterHighlight(HighlightResult result) {
-  }
+  void afterHighlight(HighlightResult result) {}
 
   HighlightResult? _highlightJson(String code) {
     final _TokenTree tokenTree = _TokenTreeEmitter();
@@ -36,20 +34,21 @@ class FastJsonPlugin implements HLPlugin {
       emitter: tokenTree,
     );
   }
-
 }
 
 class _JsonParser {
-
   final String _code;
   final _TokenTree _tokenTree;
   int _pos = 0;
   int _lastPos = 0;
+  late final int _codeLength;
 
-  _JsonParser(this._code, this._tokenTree);
+  _JsonParser(this._code, this._tokenTree) {
+    _codeLength = _code.length;
+  }
 
   void parse() {
-    while (_pos < _code.length) {
+    while (_pos < _codeLength) {
       _parseValue();
       _skipWhitespace();
       _flushText();
@@ -65,7 +64,7 @@ class _JsonParser {
 
   void _parseValue() {
     _skipWhitespace();
-    if (_pos >= _code.length) {
+    if (_pos >= _codeLength) {
       return;
     }
 
@@ -86,7 +85,9 @@ class _JsonParser {
     } else if (char == 'n') {
       _parseLiteral('null');
     } else {
-      throw FormatException('Invalid character ${_code[_pos]} at position $_pos');
+      throw FormatException(
+        'Invalid character ${_code[_pos]} at position $_pos',
+      );
     }
   }
 
@@ -99,11 +100,11 @@ class _JsonParser {
     _lastPos = _pos;
 
     bool first = true;
-    while (_pos < _code.length) {
+    while (_pos < _codeLength) {
       _skipWhitespace();
       _flushText();
 
-      if (_pos < _code.length && _code[_pos] == '}') {
+      if (_pos < _codeLength && _code[_pos] == '}') {
         _tokenTree.openNode('punctuation');
         _tokenTree.addText('}');
         _tokenTree.closeNode();
@@ -113,7 +114,7 @@ class _JsonParser {
       }
 
       if (!first) {
-        if (_pos < _code.length && _code[_pos] == ',') {
+        if (_pos < _codeLength && _code[_pos] == ',') {
           _tokenTree.openNode('punctuation');
           _tokenTree.addText(',');
           _tokenTree.closeNode();
@@ -127,7 +128,7 @@ class _JsonParser {
       _skipWhitespace();
       _flushText();
 
-      if (_pos < _code.length && _code[_pos] == '"') {
+      if (_pos < _codeLength && _code[_pos] == '"') {
         _parseString(true);
       } else {
         throw FormatException('Key should be a string at position $_pos');
@@ -136,7 +137,7 @@ class _JsonParser {
       _skipWhitespace();
       _flushText();
 
-      if (_pos < _code.length && _code[_pos] == ':') {
+      if (_pos < _codeLength && _code[_pos] == ':') {
         _tokenTree.openNode('punctuation');
         _tokenTree.addText(':');
         _tokenTree.closeNode();
@@ -162,11 +163,11 @@ class _JsonParser {
     _lastPos = _pos;
 
     bool first = true;
-    while (_pos < _code.length) {
+    while (_pos < _codeLength) {
       _skipWhitespace();
       _flushText();
 
-      if (_pos < _code.length && _code[_pos] == ']') {
+      if (_pos < _codeLength && _code[_pos] == ']') {
         _tokenTree.openNode('punctuation');
         _tokenTree.addText(']');
         _tokenTree.closeNode();
@@ -176,7 +177,7 @@ class _JsonParser {
       }
 
       if (!first) {
-        if (_pos < _code.length && _code[_pos] == ',') {
+        if (_pos < _codeLength && _code[_pos] == ',') {
           _tokenTree.openNode('punctuation');
           _tokenTree.addText(',');
           _tokenTree.closeNode();
@@ -202,7 +203,7 @@ class _JsonParser {
     _pos++;
     bool escaped = false;
 
-    while (_pos < _code.length) {
+    while (_pos < _codeLength) {
       final char = _code[_pos];
       if (escaped) {
         escaped = false;
@@ -216,7 +217,7 @@ class _JsonParser {
       _pos++;
     }
 
-    if (_pos >= _code.length) {
+    if (_pos >= _codeLength) {
       throw const FormatException('String not closed');
     }
 
@@ -234,40 +235,40 @@ class _JsonParser {
       _pos++;
     }
 
-    if (_pos < _code.length && _code[_pos] == '0') {
+    if (_pos < _codeLength && _code[_pos] == '0') {
       _pos++;
-    } else if (_pos < _code.length && _isDigit(_code[_pos])) {
-      while (_pos < _code.length && _isDigit(_code[_pos])) {
+    } else if (_pos < _codeLength && _isDigit(_code[_pos])) {
+      while (_pos < _codeLength && _isDigit(_code[_pos])) {
         _pos++;
       }
     } else {
       throw FormatException('Invalid number at position $_pos');
     }
 
-    if (_pos < _code.length && _code[_pos] == '.') {
+    if (_pos < _codeLength && _code[_pos] == '.') {
       _pos++;
 
-      if (_pos >= _code.length || !_isDigit(_code[_pos])) {
+      if (_pos >= _codeLength || !_isDigit(_code[_pos])) {
         throw const FormatException('Decimal part should have digits');
       }
 
-      while (_pos < _code.length && _isDigit(_code[_pos])) {
+      while (_pos < _codeLength && _isDigit(_code[_pos])) {
         _pos++;
       }
     }
 
-    if (_pos < _code.length && (_code[_pos] == 'e' || _code[_pos] == 'E')) {
+    if (_pos < _codeLength && (_code[_pos] == 'e' || _code[_pos] == 'E')) {
       _pos++;
 
-      if (_pos < _code.length && (_code[_pos] == '+' || _code[_pos] == '-')) {
+      if (_pos < _codeLength && (_code[_pos] == '+' || _code[_pos] == '-')) {
         _pos++;
       }
 
-      if (_pos >= _code.length || !_isDigit(_code[_pos])) {
+      if (_pos >= _codeLength || !_isDigit(_code[_pos])) {
         throw const FormatException('Exponential part should have digits');
       }
 
-      while (_pos < _code.length && _isDigit(_code[_pos])) {
+      while (_pos < _codeLength && _isDigit(_code[_pos])) {
         _pos++;
       }
     }
@@ -279,7 +280,7 @@ class _JsonParser {
   }
 
   void _parseLiteral(String literal) {
-    if (_pos + literal.length > _code.length ||
+    if (_pos + literal.length > _codeLength ||
         _code.substring(_pos, _pos + literal.length) != literal) {
       throw FormatException('Expected $literal at position $_pos');
     }
@@ -293,7 +294,7 @@ class _JsonParser {
   }
 
   void _skipWhitespace() {
-    while (_pos < _code.length && _isWhitespace(_code[_pos])) {
+    while (_pos < _codeLength && _isWhitespace(_code[_pos])) {
       _pos++;
     }
   }
@@ -303,6 +304,7 @@ class _JsonParser {
   }
 
   bool _isDigit(String char) {
-    return char.codeUnitAt(0) >= 48 && char.codeUnitAt(0) <= 57;
+    final int code = char.codeUnitAt(0);
+    return code >= 48 && code <= 57;
   }
 }

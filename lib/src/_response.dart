@@ -1,7 +1,6 @@
-part of re_highlight;
+part of 're_highlight.dart';
 
 class ModeCallbackResponse {
-
   late final Map<String, dynamic> data;
   late bool isMatchIgnored;
 
@@ -13,5 +12,4 @@ class ModeCallbackResponse {
   void ignoreMatch() {
     isMatchIgnored = true;
   }
-
 }

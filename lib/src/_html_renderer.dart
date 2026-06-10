@@ -1,13 +1,14 @@
-part of re_highlight;
+part of 're_highlight.dart';
 
 const String _kSpanClose = '</span>';
 
 String _escapeHTML(String value) {
-  return value.replaceAll(r'&', '&amp;')
-    .replaceAll(RegExp(r'<'), '&lt;')
-    .replaceAll(RegExp(r'>'), '&gt;')
-    .replaceAll(RegExp(r'"'), '&quot;')
-    .replaceAll(RegExp(r"'"), '&#x27;');
+  return value
+      .replaceAll(r'&', '&amp;')
+      .replaceAll(getRegExp(r'<'), '&lt;')
+      .replaceAll(getRegExp(r'>'), '&gt;')
+      .replaceAll(getRegExp(r'"'), '&quot;')
+      .replaceAll(getRegExp(r"'"), '&#x27;');
 }
 
 /// Determines if a node needs to be wrapped in <span>
@@ -25,7 +26,7 @@ String scopeToCSSClass(String name, String prefix) {
     final List<String> pieces = name.split('.');
     return [
       '$prefix${pieces.removeAt(0)}',
-      ...(pieces.mapIndexed((i, x) => '$x${'_' * (i + 1)}'))
+      ...(pieces.mapIndexed((i, x) => '$x${'_' * (i + 1)}')),
     ].join(' ');
   }
   // simple scope
@@ -33,7 +34,6 @@ String scopeToCSSClass(String name, String prefix) {
 }
 
 class _HTMLRenderer implements HighlightRenderer {
-
   final _TokenTree parseTree;
   final String classPrefix;
 
@@ -83,5 +83,4 @@ class _HTMLRenderer implements HighlightRenderer {
   void span(String className) {
     buffer += '<span class="$className">';
   }
-
 }

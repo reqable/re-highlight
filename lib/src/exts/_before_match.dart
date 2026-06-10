@@ -1,4 +1,4 @@
-part of re_highlight;
+part of '../re_highlight.dart';
 
 /// allow beforeMatch to act as a "qualifier" for the match
 /// the full match begin must be [beforeMatch][begin]
@@ -16,13 +16,11 @@ void _beforeMatchExt(Mode mode, Mode? parent) {
   mode.clean();
 
   mode.keywords = originalMode.keywords;
-  mode.begin = _concat([originalMode.beforeMatch, _lookahead(originalMode.begin)]);
-  mode.starts = Mode(
-    relevance: 0,
-    contains: [
-      originalMode
-    ]
-  );
+  mode.begin = _concat([
+    originalMode.beforeMatch,
+    _lookahead(originalMode.begin),
+  ]);
+  mode.starts = Mode(relevance: 0, contains: [originalMode]);
   mode.relevance = 0;
   originalMode.endsParent = true;
   originalMode.beforeMatch = null;

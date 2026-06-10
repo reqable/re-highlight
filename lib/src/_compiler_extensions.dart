@@ -1,4 +1,4 @@
-part of re_highlight;
+part of 're_highlight.dart';
 
 typedef CompilerExt = void Function(Mode mode, Mode? parent);
 
@@ -10,7 +10,10 @@ typedef CompilerExt = void Function(Mode mode, Mode? parent);
 /// `bob.keyword.do()`. The mode compiler automatically wires this up as a
 /// special _internal_ 'on:begin' callback for modes with `beginKeywords`
 ///
-void _skipIfHasPrecedingDot(EnhancedMatch match, ModeCallbackResponse response) {
+void _skipIfHasPrecedingDot(
+  EnhancedMatch match,
+  ModeCallbackResponse response,
+) {
   final String? before = match.start > 0 ? match.input[match.start - 1] : null;
   if (before == '.') {
     response.ignoreMatch();
@@ -43,7 +46,8 @@ void _beginKeywords(Mode mode, Mode? parent) {
   // or whitespace - this does no harm in any case since our keyword engine
   // doesn't allow spaces in keywords anyways and we still check for the boundary
   // first
-  mode.begin = '\\b(${mode.beginKeywords!.split(' ').join('|')})(?!\\.)(?=\\b|\\s)';
+  mode.begin =
+      '\\b(${mode.beginKeywords!.split(' ').join('|')})(?!\\.)(?=\\b|\\s)';
   mode.beforeBegin = _skipIfHasPrecedingDot;
   mode.keywords = mode.keywords ?? mode.beginKeywords;
   mode.beginKeywords = null;

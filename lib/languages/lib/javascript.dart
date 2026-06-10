@@ -1,20 +1,26 @@
 import 'package:re_highlight/re_highlight.dart';
 
-ModeCallback callbackOnBegin = (EnhancedMatch match, ModeCallbackResponse response) {
+ModeCallback callbackOnBegin = (
+  EnhancedMatch match,
+  ModeCallbackResponse response,
+) {
   final String? match0 = match[0];
   if (match0 == null) {
     return;
   }
   final int afterMatchIndex = match0.length + match.index;
-  final String nextChar = match.input.substring(afterMatchIndex, afterMatchIndex + 1);
+  final String nextChar = match.input.substring(
+    afterMatchIndex,
+    afterMatchIndex + 1,
+  );
   if (
-    // HTML should not include another raw `<` inside a tag
-    // nested type?
-    // `<Array<Array<number>>`, etc.
-    nextChar == "<" ||
-    // the , gives away that this is not HTML
-    // `<T, A extends keyof T, V>`
-    nextChar == ",") {
+  // HTML should not include another raw `<` inside a tag
+  // nested type?
+  // `<Array<Array<number>>`, etc.
+  nextChar == "<" ||
+      // the , gives away that this is not HTML
+      // `<T, A extends keyof T, V>`
+      nextChar == ",") {
     response.ignoreMatch();
     return;
   }
@@ -35,7 +41,7 @@ ModeCallback callbackOnBegin = (EnhancedMatch match, ModeCallbackResponse respon
 
   // some more template typing stuff
   //  <T = any>(key?: string) => Modify<
-  if (RegExp(r'^\s*=').hasMatch(afterMatch)) {
+  if (getRegExp(r'^\s*=').hasMatch(afterMatch)) {
     response.ignoreMatch();
     return;
   }
@@ -43,7 +49,7 @@ ModeCallback callbackOnBegin = (EnhancedMatch match, ModeCallbackResponse respon
   // `<From extends string>`
   // technically this could be HTML, but it smells like a type
   // NOTE: This is ugh, but added specifically for https://github.com/highlightjs/highlight.js/issues/3276
-  final RegExpMatch? m = RegExp(r'^\s+extends\s+').firstMatch(afterMatch);
+  final RegExpMatch? m = getRegExp(r'^\s+extends\s+').firstMatch(afterMatch);
   if (m != null) {
     if (m.start == 0) {
       response.ignoreMatch();

@@ -1,4 +1,4 @@
-part of re_highlight;
+part of 're_highlight.dart';
 
 // BACKREF_RE matches an open parenthesis or backreference. To avoid
 // an incorrect parse, it additionally matches the following:
@@ -8,6 +8,7 @@ part of re_highlight;
 // - non-matching or lookahead parentheses, which do not capture. These
 //   follow the '(' with a '?'.
 const String _backrefRe = r'\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\.';
+RegExp backrefRegExp = RegExp(_backrefRe);
 
 String _concat(List<String?> values) {
   return values.join();
@@ -24,7 +25,17 @@ String _either(List<String> args) {
 }
 
 int _countMatchGroups(String re) {
-  return RegExp('$re|').allMatches('').first.groupCount;
+  return getRegExp('$re|').allMatches('').first.groupCount;
+}
+
+Map<String, RegExp> _regExpCache = {};
+RegExp getRegExp(String re) {
+  if (_regExpCache.containsKey(re)) {
+    return _regExpCache[re]!;
+  }
+  final RegExp result = RegExp(re);
+  _regExpCache[re] = result;
+  return result;
 }
 
 // **INTERNAL** Not intended for outside usage
@@ -33,34 +44,38 @@ int _countMatchGroups(String re) {
 // it also places each individual regular expression into it's own
 // match group, keeping track of the sequencing of those match groups
 // is currently an exercise for the caller. :-)
-String _rewriteBackreferences(List<String> regexps, {
-  required String joinWith
+String _rewriteBackreferences(
+  List<String> regexps, {
+  required String joinWith,
 }) {
   int numCaptures = 0;
-  return regexps.map((regex) {
-    numCaptures += 1;
-    final int offset = numCaptures;
-    String out = '';
-    while (regex.isNotEmpty) {
-      final RegExpMatch? match = RegExp(_backrefRe).firstMatch(regex);
-      if (match == null) {
-        out += regex;
-        break;
-      }
-      final String match0 = match[0]!;
-      final String? match1 = match[1];
-      out += regex.substring(0, match.start);
-      regex = regex.substring(match.start  +match0.length);
-      if (match0[0] == '\\' && match1 != null) {
-        // Adjust the backreference.
-        out += '\\${int.parse(match1) + offset}';
-      } else {
-        out += match0;
-        if (match0 == '(') {
-          numCaptures++;
+  return regexps
+      .map((regex) {
+        numCaptures += 1;
+        final int offset = numCaptures;
+        String out = '';
+        while (regex.isNotEmpty) {
+          final RegExpMatch? match = backrefRegExp.firstMatch(regex);
+          if (match == null) {
+            out += regex;
+            break;
+          }
+          final String match0 = match[0]!;
+          final String? match1 = match[1];
+          out += regex.substring(0, match.start);
+          regex = regex.substring(match.start + match0.length);
+          if (match0[0] == '\\' && match1 != null) {
+            // Adjust the backreference.
+            out += '\\${int.parse(match1) + offset}';
+          } else {
+            out += match0;
+            if (match0 == '(') {
+              numCaptures++;
+            }
+          }
         }
-      }
-    }
-    return out;
-  }).map((re) => '($re)').join(joinWith);
+        return out;
+      })
+      .map((re) => '($re)')
+      .join(joinWith);
 }

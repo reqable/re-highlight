@@ -1,9 +1,11 @@
-part of re_highlight;
+part of 're_highlight.dart';
 
-typedef ModeCallback = void Function(EnhancedMatch match, ModeCallbackResponse response);
+typedef ModeCallback =
+    void Function(EnhancedMatch match, ModeCallbackResponse response);
 
 class Mode {
   String? ref;
+
   /// Map<String, Mode> | Map<String, List<Mode>>
   Map<String, dynamic>? refs;
 
@@ -19,19 +21,26 @@ class Mode {
 
   /// String | List<String>
   dynamic begin;
+
   /// String | List<String>
   dynamic match;
+
   /// String | List<String>
   dynamic end;
+
   /// String | Map<int, String>
   @Deprecated('deprecated in favor of `scope`')
   dynamic className;
+
   /// String | Map<int, String>
   dynamic scope;
+
   /// String | Map<int, String> | _CompiledScope
   dynamic beginScope;
+
   /// String | Map<int, String> | _CompiledScope
   dynamic endScope;
+
   /// List<Mode> | Mode
   dynamic contains;
   bool? endsParent;
@@ -46,20 +55,25 @@ class Mode {
   String? beforeMatch;
   Mode? parent;
   Mode? starts;
+
   /// String
   String? lexemes;
+
   /// Map<String, dynamic> | String
   dynamic keywords;
   String? beginKeywords;
   double? relevance;
+
   /// String | List<String>
   dynamic illegal;
+
   /// List<Mode> | Mode
   dynamic variants;
   List<Mode>? cachedVariants;
   dynamic subLanguage;
   bool? isCompiled;
   String? label;
+
   /// CompiledMode
   String? terminatorEnd;
   List<CompilerExt>? compilerExtensions;
@@ -201,7 +215,7 @@ class Mode {
       endScope: mode?.endScope ?? endScope,
       contains: mode?.contains ?? contains,
       endsParent: mode?.endsParent ?? endsParent,
-      endsWithParent:mode?.endsWithParent ?? endsWithParent,
+      endsWithParent: mode?.endsWithParent ?? endsWithParent,
       endSameAsBegin: mode?.endSameAsBegin ?? endSameAsBegin,
       skip: mode?.skip ?? skip,
       excludeBegin: mode?.excludeBegin ?? excludeBegin,
@@ -234,5 +248,4 @@ class Mode {
       data: mode?.data ?? data,
     );
   }
-
 }

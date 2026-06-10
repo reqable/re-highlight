@@ -1,4 +1,4 @@
-part of re_highlight;
+part of 're_highlight.dart';
 
 class DataNode {
   String? scope;
@@ -6,16 +6,10 @@ class DataNode {
   // DataNode | String
   final List<dynamic> children;
 
-  DataNode({
-    this.scope,
-    this.language,
-    required this.children
-  });
-
+  DataNode({this.scope, this.language, required this.children});
 }
 
 abstract class Emitter {
-
   DataNode get root;
   void addText(String text);
   void startScope(String scope);
@@ -25,17 +19,13 @@ abstract class Emitter {
   void openNode(String scope);
   void closeNode();
   void _addSublanguage(Emitter emitter, String? subLanguageName);
-
 }
 
 abstract class _TokenTree extends Emitter {
-
   DataNode rootNode;
   late List<DataNode> stack;
 
-  _TokenTree() : rootNode = DataNode(
-    children: []
-  ) {
+  _TokenTree() : rootNode = DataNode(children: []) {
     stack = [rootNode];
   }
 
@@ -50,10 +40,7 @@ abstract class _TokenTree extends Emitter {
 
   @override
   void openNode(String scope) {
-    final DataNode node = DataNode(
-      scope: scope,
-      children: []
-    );
+    final DataNode node = DataNode(scope: scope, children: []);
     add(node);
     stack.add(node);
   }
@@ -85,11 +72,9 @@ abstract class _TokenTree extends Emitter {
       builder.closeNode(node);
     }
   }
-
 }
 
 class _TokenTreeEmitter extends _TokenTree {
-
   @override
   void addText(String text) {
     if (text.isEmpty) {
