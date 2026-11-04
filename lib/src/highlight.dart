@@ -25,10 +25,22 @@ class Highlight {
     _safeMode = true;
   }
 
+  /// Highlights [code] as [language].
+  ///
+  /// [continuation] is the mode a PREVIOUS parse finished in - the `top` of
+  /// the [HighlightResult] it returned. Pass it to carry state across a
+  /// boundary the parse cannot see over, which is how an editor colours one
+  /// line at a time and still knows it is inside a block comment, a docstring
+  /// or a `<style>` body. highlight.js has always had this; the port kept it
+  /// private, and an editor cannot work correctly without it.
+  ///
+  /// FORK CHANGE: this parameter, and [HighlightResult.top]
+  /// below, are the only additions to this file.
   HighlightResult highlight({
     required String code,
     required String language,
-    bool ignoreIllegals = true
+    bool ignoreIllegals = true,
+    HighlightContinuation? continuation
   }) {
     final BeforeHighlightContext context = BeforeHighlightContext(
       code: code,
@@ -43,7 +55,7 @@ class Highlight {
     // a before plugin can usurp the result completely by providing it's own
     // in which case we don't even need to call highlight
     final HighlightResult result = context.result ??
-      _highlight(context.language, context.code, ignoreIllegals);
+      _highlight(context.language, context.code, ignoreIllegals, continuation);
 
     result.code = context.code;
     // the plugin can change anything in result to suite it
@@ -169,15 +181,20 @@ class Highlight {
   }
 
   /// private highlight that's used internally and does not fire callbacks
-  HighlightResult _highlight(String languageName, String codeToHighlight, bool ignoreIllegals, [Mode? continuation]) {
+  HighlightResult _highlight(String languageName, String codeToHighlight, bool ignoreIllegals, [HighlightContinuation? continuation]) {
     final Map<String, int> keywordHits = {};
     final Mode? language = getLanguage(languageName);
     if (language == null) {
       throw AssertionError('Unknown language: "$languageName"');
     }
     final Mode md = _compileLanguage(language);
-    Mode top = continuation ?? md;
-    final Map<String, Mode?> continuations = {};
+    Mode top = continuation?.top ?? md;
+    // FORK CHANGE: seeded from the caller's state instead of
+    // starting empty, so an EMBEDDED language resumes too - a `<style>` body or
+    // a CSS comment that runs past the end of the line the caller handed us.
+    final Map<String, HighlightContinuation?> continuations = {
+      ...?continuation?.subLanguages
+    };
     final Emitter emitter = _TokenTreeEmitter();
     String modeBuffer = '';
     double relevance = 0;
@@ -252,7 +269,7 @@ class Highlight {
           return;
         }
         result = _highlight(top.subLanguage, modeBuffer, true, continuations[top.subLanguage]);
-        continuations[top.subLanguage] = result._top;
+        continuations[top.subLanguage] = result._continuation;
       } else if (top.subLanguage is List<String>) {
         result = highlightAuto(modeBuffer, top.subLanguage.isEmpty ? null : top.subLanguage);
       } else {
@@ -565,7 +582,8 @@ class Highlight {
         relevance: relevance,
         illegal: false,
         emitter: emitter,
-        top: top
+        top: top,
+        continuation: HighlightContinuation(top, continuations)
       );
     } on Error catch (err) {
       if (err is AnnotatedError && err.message.contains('Illegal')) {
@@ -590,7 +608,8 @@ class Highlight {
           relevance: 0,
           errorRaised: err,
           emitter: emitter,
-          top: top
+          top: top,
+          continuation: HighlightContinuation(top, continuations)
         );
       } else {
         rethrow;
@@ -620,6 +639,51 @@ class BeforeHighlightContext {
   });
 }
 
+/// Where a parse finished, so the next one can pick up from there.
+///
+/// FORK CHANGE: this whole type. highlight.js carries the
+/// same thing internally; the port kept it private, and an editor colouring one
+/// line at a time cannot work without it - a block comment, a python docstring,
+/// a multi-line tag or a `<style>` body all open on one line and close on
+/// another.
+///
+/// [top] is the mode THIS language ended in. [subLanguages] is the same answer
+/// for each language this one embedded, keyed by language name, and is what
+/// makes a CSS comment inside an Astro `<style>` block resume correctly - the
+/// outer grammar's own mode says nothing about where the CSS got to.
+class HighlightContinuation {
+
+  HighlightContinuation(this.top, [Map<String, HighlightContinuation?>? subLanguages])
+    : subLanguages = Map<String, HighlightContinuation?>.unmodifiable(
+        subLanguages ?? const <String, HighlightContinuation?>{});
+
+  final Mode? top;
+  final Map<String, HighlightContinuation?> subLanguages;
+
+  /// Two states are the same when they resume the same way. Compiled modes are
+  /// reused instances, so the modes compare by identity; the embedded states
+  /// compare the same way, recursively.
+  ///
+  /// The caller needs this: an editor re-colours the lines BELOW a line whose
+  /// end state moved, and a fresh object per parse would make that every line,
+  /// every keystroke.
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! HighlightContinuation) return false;
+    if (!identical(other.top, top)) return false;
+    if (other.subLanguages.length != subLanguages.length) return false;
+    for (final entry in subLanguages.entries) {
+      if (!other.subLanguages.containsKey(entry.key)) return false;
+      if (other.subLanguages[entry.key] != entry.value) return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode => Object.hash(identityHashCode(top), subLanguages.length);
+}
+
 class HighlightResult {
 
   String code;
@@ -631,6 +695,7 @@ class HighlightResult {
   final IllegalData? _illegalBy;
   final Emitter _emitter;
   final Mode? _top;
+  final HighlightContinuation? _continuation;
 
   HighlightResult({
     required this.code,
@@ -640,10 +705,26 @@ class HighlightResult {
     this.errorRaised,
     IllegalData? illegalBy,
     required Emitter emitter,
-    Mode? top
+    Mode? top,
+    HighlightContinuation? continuation
   }) : _illegalBy = illegalBy,
     _emitter = emitter,
-    _top = top;
+    _top = top,
+    _continuation = continuation;
+
+  /// Where this parse finished, to be handed back as the next parse's
+  /// `continuation`. Carries the mode this language ended in AND the same for
+  /// every language it embedded, so `<style>` bodies and CSS comments resume
+  /// as well as the outer document does.
+  ///
+  /// FORK CHANGE.
+  HighlightContinuation? get continuation => _continuation;
+
+  /// The mode this parse finished in. Prefer [continuation], which carries
+  /// this plus the state of every embedded language.
+  ///
+  /// FORK CHANGE: exposes the already-recorded `_top`.
+  Mode? get top => _top;
 
   void render(HighlightRenderer renderer) {
     (_emitter as _TokenTree).walk(renderer);
